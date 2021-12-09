@@ -1,10 +1,8 @@
 import React from "react";
 import { Layout, RichText } from "components";
 import { graphql } from "gatsby";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 export default function ContentfulPage(props) {
-	console.log(props);
 	return (
 		<Layout>
 			{!!props.data.contentfulPage.pageContent && (
