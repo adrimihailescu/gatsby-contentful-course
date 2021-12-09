@@ -1,6 +1,33 @@
 import React from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS } from "@contentful/rich-text-types";
+import { Hero } from "components";
 
-export const RichText = (raw, references) => {
-	return <div>{documentToReactComponents(JSON.parse(raw))}</div>;
+export const RichText = ({ raw, references }) => {
+	const referencesMap = {};
+	references.forEach((reference) => {
+		referencesMap[reference.contentful_id] = reference;
+	});
+
+	//get the id for the Contentful Hero
+	const options = {
+		renderNode: {
+			[BLOCKS.EMBEDDED_ENTRY]: (node) => {
+				const data = referencesMap[node.data.target.sys.id]; //heading, subHeading and backgroundImage
+				switch (data.__typename) {
+					case "ContentfulHero":
+						return (
+							<Hero
+								heading={data.heading}
+								subHeading={data.subHeading}
+								backgroundImage={data.backgroundImage.gatsbyImageData}
+							/>
+						);
+					default:
+						return null;
+				}
+			},
+		},
+	};
+	return <div>{documentToReactComponents(JSON.parse(raw), options)}</div>;
 };

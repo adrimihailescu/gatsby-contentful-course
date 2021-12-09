@@ -7,12 +7,11 @@ export default function ContentfulPage(props) {
 	console.log(props);
 	return (
 		<Layout>
-			<RichText
-				references={props.data.contentfulPage.pageContent.references}
-				raw={props.data.contentfulPage.pageContent.raw}
-			/>
-			{documentToReactComponents(
-				JSON.parse(props.data.contentfulPage.pageContent.raw)
+			{!!props.data.contentfulPage.pageContent && (
+				<RichText
+					references={props.data.contentfulPage.pageContent.references}
+					raw={props.data.contentfulPage.pageContent.raw}
+				/>
 			)}
 		</Layout>
 	);
@@ -27,6 +26,7 @@ export const query = graphql`
 				raw
 				references {
 					... on ContentfulHero {
+						__typename
 						contentful_id
 						heading
 						subHeading
