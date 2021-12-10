@@ -33,12 +33,12 @@ export const SubMenuItemWrapper = styled.div`
 		top: 50px;
 		background: black;
 		white-space: nowrap;
-        box-shadow: 2px 2px 2px black;
-        padding: 8px;
-        border: 1px solid '999;
-        >div {
-            line-height: 1px;
-            padding: 8px 16px;
-        }
+		box-shadow: 2px 2px 2px black;
+		padding: 8px;
+		border: 1px solid #999;
+		> div {
+			line-height: 1;
+			padding: 8px 16px;
+		}
 	}
 `;

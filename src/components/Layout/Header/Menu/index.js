@@ -5,15 +5,15 @@ import { MenuWrapper, MenuItem, SubMenuItemWrapper } from "./style";
 const Menu = () => {
 	const result = useStaticQuery(graphql`
 		fragment menuItemData on ContentfulMenuItem {
-			label
 			id
+			label
 			page {
 				slug
 			}
 		}
 
 		query MenuQuery {
-			contentfulMenu(menuItems: {}) {
+			contentfulMenu {
 				menuItems {
 					...menuItemData
 					subMenuItems {
