@@ -18,7 +18,7 @@ export const RichText = ({ raw, references = [] }) => {
 				const data = referencesMap[node.data.target.sys.id];
 				return (
 					<ImageWrapper>
-						<GatsbyImage alt={data.title} image={data.gatsbyImageData} />;
+						<GatsbyImage alt={data.title} image={data.gatsbyImageData} />
 					</ImageWrapper>
 				);
 			},
