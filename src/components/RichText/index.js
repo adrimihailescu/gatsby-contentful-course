@@ -3,7 +3,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types";
 import { Hero, PriceGroup } from "components";
 
-export const RichText = ({ raw, references }) => {
+export const RichText = ({ raw, references = [] }) => {
 	const referencesMap = {};
 	references.forEach((reference) => {
 		referencesMap[reference.contentful_id] = reference;
