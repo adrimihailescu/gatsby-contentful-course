@@ -41,6 +41,19 @@ export const query = graphql`
 							gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
 						}
 					}
+					... on ContentfulPriceGroup {
+						__typename
+						contentful_id
+						priceOptions {
+							id
+							title
+							amountPerMonth
+							description {
+								raw
+							}
+							mostPopular
+						}
+					}
 				}
 			}
 		}
