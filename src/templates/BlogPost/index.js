@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import { Layout, RichText } from "components";
 
 const BlogPost = (props) => {
-	console.log(props);
 	return (
 		//rendering the page content for the blog post
 		<Layout>
@@ -12,6 +11,7 @@ const BlogPost = (props) => {
 	);
 };
 
+//query for the relevant data
 export const query = graphql`
 	query BlogPostQuery($postId: String) {
 		contentfulBlogPost(contentful_id: { eq: $postId }) {
