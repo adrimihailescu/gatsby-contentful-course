@@ -1,11 +1,15 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Layout, RichText } from "components";
+import { Layout, RichText, SEO } from "components";
 
 const BlogPost = (props) => {
 	return (
 		//rendering the page content for the blog post
 		<Layout>
+			<SEO
+				title={props.data.contentfulBlogPost.title}
+				description={props.data.contentfulBlogPost.description}
+			/>
 			<RichText raw={props.data.contentfulBlogPost.pageContent.raw} />
 		</Layout>
 	);

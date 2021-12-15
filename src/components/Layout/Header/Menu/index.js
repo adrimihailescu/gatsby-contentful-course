@@ -51,6 +51,9 @@ const Menu = () => {
 					)}
 				</MenuItem>
 			))}
+			<MenuItem>
+				<Link to="/contact">Contact</Link>
+			</MenuItem>
 		</MenuWrapper>
 	);
 };
